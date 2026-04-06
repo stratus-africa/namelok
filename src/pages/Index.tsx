@@ -13,7 +13,7 @@ import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen scroll-smooth" style={{ scrollBehavior: 'smooth' }}>
       <Navbar />
       <HeroSection />
       <AboutSection />
