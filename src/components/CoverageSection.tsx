@@ -95,22 +95,38 @@ export function CoverageSection() {
           </motion.div>
         </div>
 
+        {/* Embedded Coverage Map */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-6"
+          className="mt-8"
         >
-          <a
-            href="https://www.google.com/maps/d/u/0/viewer?mid=1xYZ_placeholder"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all font-medium text-sm"
-          >
-            View full coverage map
-            <ChevronRight className="h-4 w-4" />
-          </a>
+          <div className="rounded-3xl overflow-hidden border border-border bg-card">
+            <iframe
+              src="https://earth.google.com/web/@-1.38605578,36.59976037,1790.65313878a,25423.64149902d,35y,-0h,0t,0r/data=CgRCAggBMigKJgokCiAxcnBDem1Vc25lYk5YR19nUkJaQ1lNRHFfZUFiTWlRcyACOgMKATBCAggASggIkOTU0QQQAQ?authuser=0"
+              width="100%"
+              height="500"
+              className="w-full"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Namelok Wireless Coverage Map"
+            />
+          </div>
+          <div className="mt-4">
+            <a
+              href="https://earth.google.com/web/@-1.38605578,36.59976037,1790.65313878a,25423.64149902d,35y,-0h,0t,0r/data=CgRCAggBMigKJgokCiAxcnBDem1Vc25lYk5YR19nUkJaQ1lNRHFfZUFiTWlRcyACOgMKATBCAggASggIkOTU0QQQAQ?authuser=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all font-medium text-sm"
+            >
+              Open full coverage map
+              <ChevronRight className="h-4 w-4" />
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>
