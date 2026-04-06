@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 export function ContactSection() {
   const { toast } = useToast();
@@ -20,16 +21,38 @@ export function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.subject || !form.message) {
+    if (!form.name.trim() || !form.email.trim() || !form.subject || !form.message.trim()) {
       toast({ title: "Please fill in all required fields", variant: "destructive" });
       return;
     }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      toast({ title: "Please enter a valid email address", variant: "destructive" });
+      return;
+    }
+
     setLoading(true);
-    // TODO: Wire to Lovable Cloud edge function
-    await new Promise((r) => setTimeout(r, 1000));
-    toast({ title: "Message sent!", description: "We'll get back to you soon." });
-    setForm({ name: "", email: "", phone: "", subject: "", message: "" });
-    setLoading(false);
+    try {
+      const id = crypto.randomUUID();
+      const { error } = await supabase.from("contact_submissions").insert({
+        id,
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim() || null,
+        subject: form.subject,
+        message: form.message.trim(),
+      });
+
+      if (error) throw error;
+
+      toast({ title: "Message sent!", description: "We'll get back to you soon." });
+      setForm({ name: "", email: "", phone: "", subject: "", message: "" });
+    } catch {
+      toast({ title: "Something went wrong", description: "Please try again later.", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -61,6 +84,7 @@ export function ContactSection() {
               placeholder="Your Name *"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
+              maxLength={100}
               className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 rounded-xl"
             />
             <Input
@@ -68,12 +92,14 @@ export function ContactSection() {
               placeholder="Email Address *"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
+              maxLength={255}
               className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 rounded-xl"
             />
             <Input
               placeholder="Phone Number"
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
+              maxLength={20}
               className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 rounded-xl"
             />
             <Select value={form.subject} onValueChange={(v) => setForm({ ...form, subject: v })}>
@@ -92,6 +118,7 @@ export function ContactSection() {
               rows={4}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
+              maxLength={1000}
               className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 rounded-xl"
             />
             <Button
