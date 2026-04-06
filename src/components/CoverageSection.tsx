@@ -30,14 +30,14 @@ export function CoverageSection() {
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-6">
+        <div className="grid lg:grid-cols-3 gap-6">
           {/* Connected - larger card */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-3 bg-card rounded-3xl p-8 border border-border"
+            className="lg:col-span-2 bg-card rounded-3xl p-8 border border-border"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-xl bg-accent/15 text-accent flex items-center justify-center">
