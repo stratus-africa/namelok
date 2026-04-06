@@ -31,13 +31,13 @@ export function CoverageSection() {
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-6">
-          {/* Connected - larger card */}
+          {/* Column 1: Connected Communities */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-2 bg-card rounded-3xl p-8 border border-border"
+            className="bg-card rounded-3xl p-8 border border-border"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-xl bg-accent/15 text-accent flex items-center justify-center">
@@ -62,13 +62,13 @@ export function CoverageSection() {
             </div>
           </motion.div>
 
-          {/* Expansion */}
+          {/* Column 2: Coming Soon */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-2 bg-card rounded-3xl p-8 border border-border"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-card rounded-3xl p-8 border border-border"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
@@ -93,41 +93,41 @@ export function CoverageSection() {
               ))}
             </div>
           </motion.div>
-        </div>
 
-        {/* Embedded Coverage Map */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-8"
-        >
-          <div className="rounded-3xl overflow-hidden border border-border bg-card">
-            <iframe
-              src="https://www.google.com/maps/d/embed?mid=1rpCzmUsnebNXG_gRBZCYMDq_eAbMiQs&ehbc=2E312F"
-              width="100%"
-              height="500"
-              className="w-full"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Namelok Wireless Coverage Map"
-            />
-          </div>
-          <div className="mt-4">
-            <a
-              href="https://www.google.com/maps/d/viewer?mid=1rpCzmUsnebNXG_gRBZCYMDq_eAbMiQs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all font-medium text-sm"
-            >
-              Open full coverage map
-              <ChevronRight className="h-4 w-4" />
-            </a>
-          </div>
-        </motion.div>
+          {/* Column 3: Coverage Map */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-card rounded-3xl border border-border overflow-hidden flex flex-col"
+          >
+            <div className="flex-1">
+              <iframe
+                src="https://www.google.com/maps/d/embed?mid=1rpCzmUsnebNXG_gRBZCYMDq_eAbMiQs&ehbc=2E312F"
+                width="100%"
+                height="100%"
+                className="w-full min-h-[400px] h-full"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Namelok Wireless Coverage Map"
+              />
+            </div>
+            <div className="p-4">
+              <a
+                href="https://www.google.com/maps/d/viewer?mid=1rpCzmUsnebNXG_gRBZCYMDq_eAbMiQs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all font-medium text-sm"
+              >
+                Open full map
+                <ChevronRight className="h-4 w-4" />
+              </a>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
