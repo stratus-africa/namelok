@@ -10,7 +10,7 @@ import { supabase } from "@/integrations/supabase/client";
 
 const contactInfo = [
   { icon: Mail, label: "info@namelok.net", href: "mailto:info@namelok.net" },
-  { icon: Phone, label: "+254 721 325277", href: "tel:+254721325277" },
+  { icon: Phone, label: "+254 795 434477", href: "tel:+254795434477" },
   { icon: MapPin, label: "Kajiado West, Kenya", href: undefined },
 ];
 
