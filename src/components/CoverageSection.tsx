@@ -118,7 +118,7 @@ export function CoverageSection() {
           </div>
           <div className="mt-4">
             <a
-              href="https://earth.google.com/web/@-1.38605578,36.59976037,1790.65313878a,25423.64149902d,35y,-0h,0t,0r/data=CgRCAggBMigKJgokCiAxcnBDem1Vc25lYk5YR19nUkJaQ1lNRHFfZUFiTWlRcyACOgMKATBCAggASggIkOTU0QQQAQ?authuser=0"
+              href="https://www.google.com/maps/d/viewer?mid=1rpCzmUsnebNXG_gRBZCYMDq_eAbMiQs"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all font-medium text-sm"
