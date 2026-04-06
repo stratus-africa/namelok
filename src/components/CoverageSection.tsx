@@ -105,7 +105,7 @@ export function CoverageSection() {
         >
           <div className="rounded-3xl overflow-hidden border border-border bg-card">
             <iframe
-              src="https://earth.google.com/web/@-1.38605578,36.59976037,1790.65313878a,25423.64149902d,35y,-0h,0t,0r/data=CgRCAggBMigKJgokCiAxcnBDem1Vc25lYk5YR19nUkJaQ1lNRHFfZUFiTWlRcyACOgMKATBCAggASggIkOTU0QQQAQ?authuser=0"
+              src="https://www.google.com/maps/d/embed?mid=1rpCzmUsnebNXG_gRBZCYMDq_eAbMiQs&ehbc=2E312F"
               width="100%"
               height="500"
               className="w-full"
