@@ -36,7 +36,7 @@ export function PartnersSection() {
               Our <span className="italic text-primary">partners</span>
             </h2>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-3 gap-4">
               {partners.map((p, i) => (
                 <motion.div
                   key={p.name}
@@ -44,9 +44,9 @@ export function PartnersSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="bg-card rounded-2xl p-5 border border-border hover:border-primary/20 hover:shadow-md transition-all duration-300 group"
+                  className="bg-card rounded-2xl p-5 border border-border hover:border-primary/20 hover:shadow-md transition-all duration-300 flex flex-col items-center text-center"
                 >
-                  <Handshake className="h-6 w-6 text-primary mb-3 group-hover:scale-110 transition-transform" />
+                  <img src={p.logo} alt={p.name} className="h-12 w-auto object-contain mb-3" />
                   <h3 className="font-semibold text-foreground text-sm mb-0.5">{p.name}</h3>
                   <p className="text-muted-foreground text-xs">{p.desc}</p>
                 </motion.div>
