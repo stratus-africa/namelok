@@ -30,7 +30,7 @@ export function CoverageSection() {
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-6">
+        <div className="grid lg:grid-cols-3 gap-6">
           {/* Connected - larger card */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
