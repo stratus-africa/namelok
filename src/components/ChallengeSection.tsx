@@ -26,22 +26,33 @@ const challenges = [
 
 export function ChallengeSection() {
   return (
-    <section className="py-20 md:py-28 bg-earth-dark text-primary-foreground">
-      <div className="container mx-auto px-4">
+    <section className="py-24 md:py-32 relative overflow-hidden">
+      <div className="absolute inset-0 bg-earth-dark" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent/5 blur-3xl" />
+
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="max-w-2xl mb-16"
         >
-          <h2 className="font-serif text-3xl md:text-5xl mb-4">The Challenge</h2>
-          <p className="text-primary-foreground/70 text-lg max-w-2xl mx-auto">
+          <span className="text-sage font-semibold text-sm tracking-widest uppercase mb-4 block">
+            The Challenge
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl text-primary-foreground mb-4 leading-tight">
+            Bridging the
+            <br />
+            <span className="italic text-sage">digital divide</span>
+          </h2>
+          <p className="text-primary-foreground/60 text-lg">
             Kajiado West faces a stark digital divide that limits education, health, and economic opportunity.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {challenges.map((c, i) => (
             <motion.div
               key={c.title}
@@ -49,13 +60,13 @@ export function ChallengeSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 p-6"
+              className="glass-dark rounded-2xl p-6 group hover:bg-white/10 transition-all duration-300"
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 mb-4">
-                <c.icon className="h-6 w-6 text-sage" />
+              <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-sage/20 text-sage mb-5 group-hover:scale-110 transition-transform">
+                <c.icon className="h-5 w-5" />
               </div>
-              <h3 className="font-serif text-xl mb-2">{c.title}</h3>
-              <p className="text-primary-foreground/60 text-sm leading-relaxed">
+              <h3 className="font-serif text-xl text-primary-foreground mb-2">{c.title}</h3>
+              <p className="text-primary-foreground/50 text-sm leading-relaxed">
                 {c.desc}
               </p>
             </motion.div>

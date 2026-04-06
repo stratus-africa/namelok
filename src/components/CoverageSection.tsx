@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, Clock } from "lucide-react";
+import { MapPin, Clock, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const connected = [
@@ -13,60 +13,83 @@ const expansion = [
 
 export function CoverageSection() {
   return (
-    <section id="coverage" className="py-20 md:py-28">
-      <div className="container mx-auto px-4">
+    <section id="coverage" className="py-24 md:py-32">
+      <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="max-w-2xl mb-16"
         >
-          <h2 className="font-serif text-3xl md:text-5xl text-foreground mb-4">
-            Coverage Area
+          <span className="text-primary font-semibold text-sm tracking-widest uppercase mb-4 block">
+            Where We Are
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight">
+            Coverage <span className="italic text-primary">area</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Growing our footprint across Kajiado West, one community at a time.
-          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid lg:grid-cols-5 gap-6">
+          {/* Connected - larger card */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-card rounded-2xl p-8 shadow-sm border border-border"
+            className="lg:col-span-3 bg-card rounded-3xl p-8 border border-border"
           >
-            <div className="flex items-center gap-2 mb-6">
-              <MapPin className="h-5 w-5 text-primary" />
-              <h3 className="font-serif text-xl text-foreground">Connected Communities</h3>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-accent/15 text-accent flex items-center justify-center">
+                <MapPin className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="font-serif text-xl text-foreground">Connected Communities</h3>
+                <p className="text-muted-foreground text-sm">Currently live and serving</p>
+              </div>
             </div>
             <div className="flex flex-wrap gap-2">
               {connected.map((c) => (
-                <Badge key={c} variant="secondary" className="bg-accent/30 text-foreground rounded-full px-4 py-1.5 text-sm">
+                <Badge
+                  key={c}
+                  variant="secondary"
+                  className="bg-accent/10 text-foreground rounded-full px-5 py-2 text-sm font-medium hover:bg-accent/20 transition-colors cursor-default"
+                >
+                  <span className="w-2 h-2 rounded-full bg-accent mr-2 inline-block" />
                   {c}
                 </Badge>
               ))}
             </div>
           </motion.div>
 
+          {/* Expansion */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-card rounded-2xl p-8 shadow-sm border border-border"
+            className="lg:col-span-2 bg-card rounded-3xl p-8 border border-border"
           >
-            <div className="flex items-center gap-2 mb-6">
-              <Clock className="h-5 w-5 text-primary" />
-              <h3 className="font-serif text-xl text-foreground">Coming Soon</h3>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                <Clock className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="font-serif text-xl text-foreground">Coming Soon</h3>
+                <p className="text-muted-foreground text-sm">Expansion in progress</p>
+              </div>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="space-y-2">
               {expansion.map((c) => (
-                <Badge key={c} variant="outline" className="rounded-full px-4 py-1.5 text-sm border-primary/30 text-muted-foreground">
-                  {c}
-                </Badge>
+                <div
+                  key={c}
+                  className="flex items-center justify-between py-2.5 px-4 rounded-xl hover:bg-muted/50 transition-colors"
+                >
+                  <span className="text-foreground text-sm font-medium">{c}</span>
+                  <Badge variant="outline" className="text-xs rounded-full border-primary/30 text-primary">
+                    Planned
+                  </Badge>
+                </div>
               ))}
             </div>
           </motion.div>
@@ -77,15 +100,16 @@ export function CoverageSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-8 text-center"
+          className="mt-6"
         >
           <a
             href="https://www.google.com/maps/d/u/0/viewer?mid=1xYZ_placeholder"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary hover:underline font-medium"
+            className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all font-medium text-sm"
           >
-            View full coverage map →
+            View full coverage map
+            <ChevronRight className="h-4 w-4" />
           </a>
         </motion.div>
       </div>
