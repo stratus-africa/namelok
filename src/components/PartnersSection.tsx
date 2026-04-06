@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
-import { Handshake, Target, Globe, TrendingUp, ArrowRight } from "lucide-react";
+import { Target, Globe, TrendingUp, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import kictanetLogo from "@/assets/partner-kictanet.png";
+import helpNgoLogo from "@/assets/partner-help-ngo.jpg";
+import isocLogo from "@/assets/partner-isoc.png";
 
 const partners = [
-  { name: "KICTANET", desc: "Kenya ICT Action Network" },
-  { name: "Help NGO", desc: "Humanitarian support" },
-  { name: "Internet Society", desc: "Global internet development" },
-  { name: "ISOC Kenya", desc: "Kenya Chapter" },
+  { name: "KICTANET", desc: "Kenya ICT Action Network", logo: kictanetLogo },
+  { name: "Help NGO", desc: "Humanitarian support", logo: helpNgoLogo },
+  { name: "Internet Society", desc: "Global internet development", logo: isocLogo },
 ];
 
 const reasons = [
