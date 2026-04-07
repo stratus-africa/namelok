@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Home, School, Heart, MapPin } from "lucide-react";
 
 const stats = [
-  { icon: Home, value: "250+", label: "Homes Connected", color: "bg-primary/10 text-primary" },
+  { icon: Home, value: "250+", label: "Homes & SMEs Connected", color: "bg-primary/10 text-primary" },
   { icon: School, value: "4", label: "Schools Online", color: "bg-accent/15 text-accent" },
   { icon: Heart, value: "4", label: "Health Centres", color: "bg-primary/10 text-primary" },
   { icon: MapPin, value: "7", label: "Communities", color: "bg-accent/15 text-accent" },
