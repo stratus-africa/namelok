@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Wifi, Zap, Camera, Wrench } from "lucide-react";
+import { Wifi, Camera, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const homePlans = [
@@ -8,11 +8,6 @@ const homePlans = [
   { speed: "10 Mbps", price: "2,000", popular: true },
   { speed: "15 Mbps", price: "3,000", popular: false },
   { speed: "25 Mbps", price: "5,000", popular: false },
-];
-
-const hotspotPlans = [
-  { label: "Daily Boost", price: "20", desc: "10 Mbps for 9 Hours", icon: Zap },
-  { label: "Power Hour", price: "100", desc: "Unlimited for 1 Hour", icon: Wifi },
 ];
 
 export function PricingSection() {
@@ -103,46 +98,62 @@ export function PricingSection() {
           </div>
         </div>
 
-        {/* Hotspot Plans */}
-        <div>
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
-              <Zap className="h-5 w-5" />
-            </div>
-            <h3 className="font-serif text-2xl md:text-3xl text-foreground">
-              Hotspot Vouchers <span className="text-muted-foreground text-base font-sans">/ pay-as-you-go</span>
-            </h3>
+        {/* Speed Comparison Table */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="bg-card rounded-2xl border border-border overflow-hidden"
+        >
+          <div className="px-6 py-5 border-b border-border bg-muted/30">
+            <h3 className="font-serif text-xl text-foreground">Speed-to-Price at a Glance</h3>
+            <p className="text-sm text-muted-foreground mt-1">Monthly home & SME plans (KES)</p>
           </div>
-
-          <div className="grid sm:grid-cols-2 gap-4">
-            {hotspotPlans.map((plan, i) => (
-              <motion.div
-                key={plan.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="bg-card rounded-2xl p-6 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 flex items-center gap-5"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
-                  <plan.icon className="h-6 w-6" />
-                </div>
-                <div className="flex-1">
-                  <div className="font-serif text-xl text-foreground mb-1">{plan.label}</div>
-                  <div className="text-sm text-muted-foreground">{plan.desc}</div>
-                </div>
-                <div className="text-right">
-                  <div className="text-xs text-muted-foreground">KES</div>
-                  <div className="text-3xl font-bold text-primary leading-none">{plan.price}</div>
-                </div>
-              </motion.div>
-            ))}
+          <div className="overflow-x-auto">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="border-b border-border text-xs uppercase tracking-wider text-muted-foreground">
+                  <th className="px-6 py-3 font-medium">Speed</th>
+                  <th className="px-6 py-3 font-medium">Best For</th>
+                  <th className="px-6 py-3 font-medium text-right">Price / Month</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                {[
+                  { speed: "5 Mbps", best: "Light browsing, social, study", price: "1,000" },
+                  { speed: "8 Mbps", best: "Family of 3–4, video calls", price: "1,500" },
+                  { speed: "10 Mbps", best: "Streaming + work from home", price: "2,000", popular: true },
+                  { speed: "15 Mbps", best: "Small offices, multi-device", price: "3,000" },
+                  { speed: "25 Mbps", best: "SMEs, heavy users, POS", price: "5,000" },
+                ].map((row) => (
+                  <tr key={row.speed} className="hover:bg-muted/30 transition-colors">
+                    <td className="px-6 py-4 font-semibold text-foreground">
+                      {row.speed}
+                      {row.popular && (
+                        <span className="ml-2 text-[10px] font-semibold uppercase tracking-wider bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+                          Popular
+                        </span>
+                      )}
+                    </td>
+                    <td className="px-6 py-4 text-sm text-muted-foreground">{row.best}</td>
+                    <td className="px-6 py-4 text-right font-bold text-foreground">
+                      <span className="text-xs text-muted-foreground font-normal mr-1">KES</span>
+                      {row.price}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 flex flex-wrap justify-center gap-3">
           <Button asChild size="lg" className="rounded-full">
-            <a href="#contact">Get Connected Today</a>
+            <a href="#inquiry">Request Connection</a>
+          </Button>
+          <Button asChild size="lg" variant="outline" className="rounded-full">
+            <a href="#hotspots">View Hotspot Vouchers</a>
           </Button>
         </div>
       </div>
