@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Wifi, Zap, Camera, Wrench } from "lucide-react";
+import { Wifi, Camera, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const homePlans = [
@@ -8,11 +8,6 @@ const homePlans = [
   { speed: "10 Mbps", price: "2,000", popular: true },
   { speed: "15 Mbps", price: "3,000", popular: false },
   { speed: "25 Mbps", price: "5,000", popular: false },
-];
-
-const hotspotPlans = [
-  { label: "Daily Boost", price: "20", desc: "10 Mbps for 9 Hours", icon: Zap },
-  { label: "Power Hour", price: "100", desc: "Unlimited for 1 Hour", icon: Wifi },
 ];
 
 export function PricingSection() {
