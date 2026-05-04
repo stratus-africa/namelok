@@ -4,11 +4,14 @@ import { AboutSection } from "@/components/AboutSection";
 import { ChallengeSection } from "@/components/ChallengeSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { PricingSection } from "@/components/PricingSection";
+import { HotspotSection } from "@/components/HotspotSection";
 import { HowItWorksSection } from "@/components/HowItWorksSection";
 import { CoverageSection } from "@/components/CoverageSection";
 import { ImpactSection } from "@/components/ImpactSection";
 import { VisionSection } from "@/components/VisionSection";
 import { PartnersSection } from "@/components/PartnersSection";
+import { HotspotFAQ } from "@/components/HotspotFAQ";
+import { InquirySection } from "@/components/InquirySection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 
@@ -21,11 +24,14 @@ const Index = () => {
       <ChallengeSection />
       <ServicesSection />
       <PricingSection />
+      <HotspotSection />
       <HowItWorksSection />
       <CoverageSection />
       <ImpactSection />
       <VisionSection />
       <PartnersSection />
+      <HotspotFAQ />
+      <InquirySection />
       <ContactSection />
       <Footer />
     </div>
