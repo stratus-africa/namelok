@@ -6,6 +6,7 @@ import logo from "@/assets/namelok-logo.png";
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Pricing", href: "#pricing" },
   { label: "Coverage", href: "#coverage" },
   { label: "Impact", href: "#impact" },
   { label: "Partners", href: "#partners" },
