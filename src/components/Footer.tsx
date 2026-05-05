@@ -2,12 +2,11 @@ import { ArrowUp } from "lucide-react";
 import logo from "@/assets/namelok-logo.png";
 
 const links = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Coverage", href: "#coverage" },
-  { label: "Impact", href: "#impact" },
-  { label: "Partners", href: "#partners" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Coverage", href: "/coverage" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Footer() {
